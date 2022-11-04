@@ -62,10 +62,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 ]
-#
-# CORS_ORIGIN_WHITELIST = [
-#     "http://localhost:4200", "https://assingment-sf-frontend.herokuapp.com"
-# ]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8080", "https://assingment-user.herokuapp.com"
+]
 
 
 MIDDLEWARE = [
