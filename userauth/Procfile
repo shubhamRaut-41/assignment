@@ -1,1 +1,1 @@
-web: gunicorn userauth.app:server --pythonpath=userauth
+web:gunicorn userauth.wsgi
