@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from rest_framework.renderers import TemplateHTMLRenderer
+
 from .models import UserData as UserModel
 from .serializers import UserSerializer
 from rest_framework.views import APIView
@@ -10,16 +12,10 @@ from .email.email_msg import EmailMessage
 from rest_framework import status
 
 
-# Create your views here.
-def index(request):
-    return render(request, "index.html")
-
-
 class UserCreation(View):
     """ User Store Section Using Ui """
-
     @staticmethod
-    def get(self, request):
+    def get(request):
         return render(request, "index.html")
 
     @staticmethod
@@ -73,18 +69,21 @@ class EmailVerification(View):
         if pk:
             try:
                 user = UserModel.objects.get(id=pk)
+                user.active = True
+                user.save()
             except Exception as e:
                 return HttpResponse("<h1>Something went wrong...</h1>")
         return render(request, "email_validation.html", {"user": user})
 
     def post(self, request, pk):
         try:
+            print("user change..")
             user = UserModel.objects.get(id=pk)
             user.active = True
             user.save()
+            print("user change..")
             return HttpResponse("Successfully registered...")
         except Exception as e:
             return HttpResponse("<h1>Something went wrong</h1>")
-        
-        
+
 #End of code...
