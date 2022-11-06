@@ -164,3 +164,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
+
+ALLOWED_HOSTS = ['https://mytasktest.herokuapp.com/', 'localhost:8080', '127.0.0.1:8080']
+DEBUG = False
