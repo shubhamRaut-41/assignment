@@ -1,1 +1,1 @@
-web:gunicorn.userauth.wgi
+web: gunicorn dashboard.app:server --pythonpath=dashboard
