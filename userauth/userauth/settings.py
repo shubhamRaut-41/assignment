@@ -115,7 +115,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+WSGI_APPLICATION = "userauth.wsgi.application"
 # # Database postgres
 # DATABASES = {
 #     'default': {
