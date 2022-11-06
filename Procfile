@@ -1,0 +1,1 @@
+web: gunicorn userauth.app:server --pythonpath=userauth
