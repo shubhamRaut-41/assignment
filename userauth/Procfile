@@ -1,1 +1,2 @@
-web:gunicorn userauth.wsgi
+
+web: python userauth/manage.py runserver 0.0.0.0:$8000
